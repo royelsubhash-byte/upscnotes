@@ -1,18 +1,20 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
-
 import os
 
-TOKEN = os.getenv("BOT_TOKEN")  # Render पर Environment Variable से लेंगे
+# Render से Environment Variable BOT_TOKEN लेंगे
+TOKEN = os.getenv("BOT_TOKEN")
 
+# /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("नमस्ते 👋 यह UPSC Notes Bot है।")
 
+# User का message handle करना
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
     if "notes" in text.lower():
         await update.message.reply_document(
-            document=open("sample.pdf", "rb"),
+            document=open("sample.pdf", "rb"),  # Repo में sample.pdf डालना ज़रूरी है
             filename="UPSC_Notes.pdf",
             caption="यह आपकी UPSC Notes PDF है 📄"
         )
