@@ -3,7 +3,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 import os
 
 # Render से Environment Variable BOT_TOKEN लेंगे
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.getenv("7407698528:AAHh0tJx4TkQsT7HDcoBdPJaCAfXCfZKJBg")
 
 # /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
